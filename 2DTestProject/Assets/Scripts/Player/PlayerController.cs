@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     private Rigidbody2D rbPlayer;
 
     public float speedPlayer;
     public float jumpForcePlayer;
 
-
+    //Player movement var
+    //*************************
     [Header("Ground Check")]
     public Transform groundCheck;
     public float checkRadius;
@@ -24,6 +24,12 @@ public class PlayerController : MonoBehaviour
     [Header("Jump FX")]
     public GameObject jumpFX;
     public GameObject landFX;
+    //**************************
+
+    [Header("Attack Settings")]
+    public GameObject bombPrefab;
+    public float nextAttack = 0;
+    public float attackRate;
 
     void Start()
     {
@@ -44,11 +50,20 @@ public class PlayerController : MonoBehaviour
 
     void CheckInput()
     {
+
         if(Input.GetButtonDown("Jump") && isGround)
         {
             canJump = true;
         }
+
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            Attack();
+        }
     }
+
+
+    // Player movement & Collisions
     void Movement()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // not include float.
@@ -99,4 +114,16 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(groundCheck.position, checkRadius);
     }
+
+    //Player attack
+    public void Attack()
+    {
+        if(Time.time > nextAttack)
+        {
+            Instantiate(bombPrefab, transform.position, bombPrefab.transform.rotation);
+
+            nextAttack = Time.time + attackRate;
+        }
+    }
+
 }
