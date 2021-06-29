@@ -348,6 +348,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Scripts/Bomb/Bomb.cs"
 "Assets/Scripts/Enemy/Enemy.cs"
+"Assets/Scripts/JumpPlat/Invisible_Plat.cs"
 "Assets/Scripts/LandFX/JumpFX.cs"
 "Assets/Scripts/Player/PlayerAnimation.cs"
 "Assets/Scripts/Player/PlayerController.cs"
