@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -12,13 +13,13 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - FX
   - Ground
   - Environment
   - NPC
   - Bomb
-  - 
-  - 
+  - 'Player '
+  - CheckArea
   - 
   - 
   - 
