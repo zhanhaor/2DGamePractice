@@ -12194,6 +12194,10 @@ MonoBehaviour:
   pointA: {fileID: 575400464}
   pointB: {fileID: 959513112}
   targetPoint: {fileID: 0}
+  attackRate: 2
+  skillRate: 4
+  attackRange: 1
+  skillRange: 1.5
   attackList: []
 --- !u!50 &153300766
 Rigidbody2D:

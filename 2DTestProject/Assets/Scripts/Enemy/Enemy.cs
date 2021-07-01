@@ -13,10 +13,17 @@ public class Enemy : MonoBehaviour
     public Transform pointA, pointB;
     public Transform targetPoint;
 
+    [Header("Attack Setting")]
+    public float attackRate,skillRate;
+    public float attackRange,skillRange;
+    private float nextAttack = 0;
+
+
     public List<Transform> attackList = new List<Transform>();// List for searching Player or Bombs in the range
 
     public PatrolState patrolState = new PatrolState();// FSM state
     public AttackState attackState = new AttackState();// FSM state
+
 
     public virtual void Init()
     {
@@ -55,12 +62,32 @@ public class Enemy : MonoBehaviour
 
     public void AttackAction() // Attack Player
     {
-        Debug.Log("Base attack");
+        //Debug.Log("Base attack");
+        
+        if(Vector2.Distance(transform.position,targetPoint.position) < attackRange)
+        {
+            if(Time.time > nextAttack)
+            {
+                //Play the attack animation
+                Debug.Log("Base attack");
+                nextAttack = Time.time + attackRate;
+            }
+        }
     }
 
     public virtual void SkillAction() //Use skill to the bomb , virtual允许子类访问
     {
-        Debug.Log("Skill attack");
+        //Debug.Log("Skill attack");
+
+        if (Vector2.Distance(transform.position, targetPoint.position) < skillRange)
+        {
+            if (Time.time > nextAttack)
+            {
+                //Play the attack animation
+                Debug.Log("Skill attack");
+                nextAttack = Time.time + skillRate;
+            }
+        }
     }
 
     public void FlipDirection()//flip enemy direction
