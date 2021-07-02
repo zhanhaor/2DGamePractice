@@ -26,10 +26,14 @@ public class Bomb : MonoBehaviour
 
     void Update()
     {
-        if (Time.time > startTime + waitTime)
+        if(!bombAnim.GetCurrentAnimatorStateInfo(0).IsName("Bomb_off"))
         {
-            bombAnim.Play("Bomb_explosion");
+            if (Time.time > startTime + waitTime)
+            {
+                bombAnim.Play("Bomb_explosion");
+            }
         }
+
     }
 
     public void OnDrawGizmos()
@@ -50,6 +54,17 @@ public class Bomb : MonoBehaviour
 
             item.GetComponent<Rigidbody2D>().AddForce((-objPos + Vector3.up) * bombForce, ForceMode2D.Impulse);
 
+            //点燃其他炸弹的方法  炸弹攻击方式 
+            if(item.CompareTag("Bomb")&& item.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Bomb_off"))
+            {
+                item.GetComponent<Bomb>().TurnOn();
+            }
+
+            if (item.CompareTag("Player"))
+                item.GetComponent<IDamageable>().GetHit(3);
+
+            if (item.CompareTag("Enemy"))
+                item.GetComponent<IDamageable>().GetHit(3);
         }
     }
 
@@ -57,4 +72,19 @@ public class Bomb : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void TurnOff()
+    {
+        bombAnim.Play("Bomb_off");
+        gameObject.layer = LayerMask.NameToLayer("NPC");
+    }
+
+    public void TurnOn()
+    {
+        startTime = Time.time;
+        bombAnim.Play("Bomb_on");
+        gameObject.layer = LayerMask.NameToLayer("Bomb");
+    }
+
+
 }

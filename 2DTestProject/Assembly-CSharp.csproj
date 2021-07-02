@@ -63,11 +63,13 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Bomb\Bomb.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Cucumber.cs" />
-    <Compile Include="Assets\Scripts\Enemy\AttackState.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyBaseState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\FSM\AttackState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\FSM\EnemyBaseState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Enemy\PatrolState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\FSM\PatrolState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\HitPoint.cs" />
+    <Compile Include="Assets\Scripts\IDamageable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
