@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\FSM\PatrolState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy_BigGuy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

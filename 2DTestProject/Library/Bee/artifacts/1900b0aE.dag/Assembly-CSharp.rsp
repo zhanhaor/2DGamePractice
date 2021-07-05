@@ -349,6 +349,7 @@
 "Assets/Scripts/Bomb/Bomb.cs"
 "Assets/Scripts/Enemy/BaldPirate.cs"
 "Assets/Scripts/Enemy/Enemy.cs"
+"Assets/Scripts/Enemy/Enemy_BigGuy.cs"
 "Assets/Scripts/Enemy/Enemy_Cucumber.cs"
 "Assets/Scripts/Enemy/FSM/AttackState.cs"
 "Assets/Scripts/Enemy/FSM/EnemyBaseState.cs"
