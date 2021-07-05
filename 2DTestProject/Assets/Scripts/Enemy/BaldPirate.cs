@@ -14,5 +14,9 @@ public class BaldPirate : Enemy, IDamageable
         }
         enemyAnim.SetTrigger("hit");
     }
+    public void SetOff()//animation event
+    {
+        targetPoint.GetComponent<Bomb>()?.TurnOff();
+    }
 
 }

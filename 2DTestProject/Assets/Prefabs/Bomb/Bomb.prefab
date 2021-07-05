@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTime: 0
   waitTime: 3
-  bombForce: 15
+  bombForce: 12
   radius: 1.45
   targetLayer:
     serializedVersion: 2
