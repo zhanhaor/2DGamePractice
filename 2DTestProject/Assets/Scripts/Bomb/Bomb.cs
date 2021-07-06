@@ -33,7 +33,6 @@ public class Bomb : MonoBehaviour
                 bombAnim.Play("Bomb_explosion");
             }
         }
-
     }
 
     public void OnDrawGizmos()

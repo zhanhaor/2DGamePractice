@@ -29,6 +29,6 @@ public class HitPoint : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction, 1) * 10, ForceMode2D.Impulse);
         }
 
-
+    
     }
 }

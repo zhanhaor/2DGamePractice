@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [Header("Base State")]
     public float health;
     public bool isDeadEnemy;
+    public bool hasBomb; // Use for the BigGuy to define bomb on his hands
 
     //Movement state
     [Header("Movement")]
@@ -100,7 +101,7 @@ public class Enemy : MonoBehaviour
             if (Time.time > nextAttack)
             {
                 //Play the skill animation
-                enemyAnim.SetTrigger("skill");
+                enemyAnim.SetTrigger("skill");  //Animator Skill trigger
                 Debug.Log("Skill attack");
                 nextAttack = Time.time + skillRate;
             }
@@ -129,10 +130,8 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if(!attackList.Contains(collision.transform))
+        if(!attackList.Contains(collision.transform) && !hasBomb)
             attackList.Add(collision.transform);
-        
-         
     }
 
     public void OnTriggerExit2D(Collider2D collision)
