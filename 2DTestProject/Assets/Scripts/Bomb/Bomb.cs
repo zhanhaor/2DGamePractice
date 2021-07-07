@@ -18,7 +18,7 @@ public class Bomb : MonoBehaviour
 
     void Start()
     {
-        bombAnim = GetComponent<Animator>();
+        bombAnim = GetComponent<Animator>();    
         coll = GetComponent<Collider2D>();
         rbBoob = GetComponent<Rigidbody2D>();
         startTime = Time.time;
@@ -60,7 +60,7 @@ public class Bomb : MonoBehaviour
             }
 
             if (item.CompareTag("Player"))
-                Debug.Log("Bomb attack player");
+                //Debug.Log("Bomb attack player");
                 item.GetComponent<IDamageable>().GetHit(3);
 
             if (item.CompareTag("Enemy"))

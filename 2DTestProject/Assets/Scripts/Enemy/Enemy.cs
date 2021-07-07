@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public bool isDeadEnemy;
     public bool hasBomb; // Use for the BigGuy to define bomb on his hands
 
+    public bool isBoss;
+
     //Movement state
     [Header("Movement")]
     public float speed;

@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
      
-    public void GetHit(float damage)
+    void IDamageable.GetHit(float damage)
     {
         if(!animPlayer.GetCurrentAnimatorStateInfo(1).IsName("player_Hit"))
         {
