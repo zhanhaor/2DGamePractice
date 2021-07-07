@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamageable
 {
     private Rigidbody2D rbPlayer;
-
     private Animator animPlayer;
+    private FixedJoystick joyStick;
 
     public float speedPlayer;
     public float jumpForcePlayer;
+
+    
 
     //Playre state , health .etc
     [Header("Player State")]
@@ -42,6 +44,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         animPlayer = GetComponent<Animator>();
+
+        joyStick = FindObjectOfType<FixedJoystick>();
+
     }
 
     void Update()
@@ -83,14 +88,25 @@ public class PlayerController : MonoBehaviour, IDamageable
     // Player movement & Collisions
     void Movement()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal"); // not include float.
+        //Keyboard Control
+        //float horizontalInput = Input.GetAxisRaw("Horizontal"); // not include float.
         // GetAxis -1~ +1 include float
+
+        float horizontalInput = joyStick.Horizontal;
+
         rbPlayer.velocity = new Vector2(horizontalInput * speedPlayer, rbPlayer.velocity.y);
 
-        if (horizontalInput != 0)
-        {
-            transform.localScale = new Vector3(horizontalInput, 1, 1);
-        }
+        //if (horizontalInput != 0)
+        //{
+        //    transform.localScale = new Vector3(horizontalInput, 1, 1);
+        //}
+
+        if (horizontalInput > 0)
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        if (horizontalInput < 0)
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        
+
     }
 
     void Jump()
@@ -106,6 +122,12 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
 
     }
+
+    public void ButtonJump()
+    {
+        canJump = true;
+    }
+
 
     void PhysicsCheck()
     {

@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     public GameObject HealthBar;
 
+    public GameObject gameOverPanel;
+
     [Header("UI Elements")]
     public GameObject pauseMenu;
 
@@ -63,6 +65,11 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(false);
 
         Time.timeScale = 1;
+    }
+
+    public void GameOverUI(bool playerDead)
+    {
+        gameOverPanel.SetActive(playerDead);
     }
 
 }
