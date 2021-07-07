@@ -142,10 +142,10 @@ public class PlayerController : MonoBehaviour, IDamageable
             nextAttack = Time.time + attackRate;
         }
     }
-
-    void IDamageable.GetHit(float damage)
+     
+    public void GetHit(float damage)
     {
-        if(animPlayer.GetCurrentAnimatorStateInfo(1).IsName("player_Hit"))
+        if(!animPlayer.GetCurrentAnimatorStateInfo(1).IsName("player_Hit"))
         {
             //health = health - damage;
             health -= damage;

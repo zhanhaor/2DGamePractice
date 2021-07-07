@@ -60,6 +60,7 @@ public class Bomb : MonoBehaviour
             }
 
             if (item.CompareTag("Player"))
+                Debug.Log("Bomb attack player");
                 item.GetComponent<IDamageable>().GetHit(3);
 
             if (item.CompareTag("Enemy"))
