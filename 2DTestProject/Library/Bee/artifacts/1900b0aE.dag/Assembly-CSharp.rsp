@@ -366,6 +366,7 @@
 "Assets/Scripts/LandFX/JumpFX.cs"
 "Assets/Scripts/Manager/GameManager.cs"
 "Assets/Scripts/Manager/UIManager.cs"
+"Assets/Scripts/Maps/CameraController.cs"
 "Assets/Scripts/Player/PlayerAnimation.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 -langversion:8.0

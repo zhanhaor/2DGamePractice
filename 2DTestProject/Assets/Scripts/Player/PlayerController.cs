@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float jumpForcePlayer;
 
     
-
     //Playre state , health .etc
     [Header("Player State")]
     public float health;
@@ -40,6 +39,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float nextAttack = 0;
     public float attackRate;
 
+
+
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
@@ -51,6 +52,9 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Update()
     {
+        
+
+
         animPlayer.SetBool("dead", isDead);
         if (isDead)
             return;
