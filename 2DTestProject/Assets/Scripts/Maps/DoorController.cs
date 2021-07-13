@@ -10,7 +10,7 @@ public class DoorController : MonoBehaviour
     void Start()
     {
         animDoor = GetComponent<Animator>();
-        coll = GetComponent<BoxCollider2D>();
+        coll = GetComponent<BoxCollider2D>(); 
 
         coll.enabled = false;   
     }
@@ -19,7 +19,7 @@ public class DoorController : MonoBehaviour
         animDoor.Play("Door_Open");
         coll.enabled = true;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {

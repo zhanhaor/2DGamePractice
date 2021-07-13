@@ -93,22 +93,22 @@ public class PlayerController : MonoBehaviour, IDamageable
     void Movement()
     {
         //Keyboard Control
-        //float horizontalInput = Input.GetAxisRaw("Horizontal"); // not include float.
+        float horizontalInput = Input.GetAxisRaw("Horizontal"); // not include float.
         // GetAxis -1~ +1 include float
 
-        float horizontalInput = joyStick.Horizontal;
+        //float horizontalInput = joyStick.Horizontal;
 
         rbPlayer.velocity = new Vector2(horizontalInput * speedPlayer, rbPlayer.velocity.y);
 
-        //if (horizontalInput != 0)
-        //{
-        //    transform.localScale = new Vector3(horizontalInput, 1, 1);
-        //}
+        if (horizontalInput != 0)
+        {
+            transform.localScale = new Vector3(horizontalInput, 1, 1);
+        }
 
-        if (horizontalInput > 0)
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        if (horizontalInput < 0)
-            transform.eulerAngles = new Vector3(0, 180, 0);
+        //if (horizontalInput > 0)
+        //    transform.eulerAngles = new Vector3(0, 0, 0);
+        //if (horizontalInput < 0)
+        //    transform.eulerAngles = new Vector3(0, 180, 0);
         
 
     }

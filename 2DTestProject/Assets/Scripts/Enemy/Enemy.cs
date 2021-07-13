@@ -142,7 +142,6 @@ public class Enemy : MonoBehaviour
         //bug area1
         if(!attackList.Contains(collision.transform) && !hasBomb && !isDeadEnemy && !GameManager.instance.gameOver)
             attackList.Add(collision.transform);
-
     }
 
     public void OnTriggerExit2D(Collider2D collision)
