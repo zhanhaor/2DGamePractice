@@ -6,7 +6,6 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     public GameObject HealthBar;
-
     public GameObject gameOverPanel;
 
     [Header("UI Elements")]

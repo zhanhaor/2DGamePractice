@@ -5,7 +5,7 @@ public class AttackState : EnemyBaseState
 {
     public override void EnterState(Enemy enemy)
     {
-        //Debug.Log("Found Enemies");
+        Debug.Log("Found Enemies");
         enemy.enemyAnimState = 2;
         enemy.targetPoint = enemy.attackList[0];
     }

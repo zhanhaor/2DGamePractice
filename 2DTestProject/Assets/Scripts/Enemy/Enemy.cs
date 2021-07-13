@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
     {
         enemyAnim = GetComponent<Animator>();
         alarmSign = transform.GetChild(0).gameObject;
+
+        //GameManager.instance.IsEnemy(this);
     }
 
     public void Awake()
@@ -51,13 +53,18 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         TransitionToState(patrolState);
+        GameManager.instance.IsEnemy(this);
+        //GameManager.instance.AddEnemy(this);
     }
 
     void Update()
     {
         enemyAnim.SetBool("dead", isDeadEnemy);
         if (isDeadEnemy)
+        {
+            GameManager.instance.EnemyDead(this);
             return;
+        }
 
         currentState.OnUpdate(this);
         enemyAnim.SetInteger("state", enemyAnimState);
@@ -132,12 +139,10 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if(!attackList.Contains(collision.transform) 
-            && !hasBomb 
-            && isDeadEnemy 
-            && !GameManager.instance.gameOver)
-            
+        //bug area1
+        if(!attackList.Contains(collision.transform) && !hasBomb && !isDeadEnemy && !GameManager.instance.gameOver)
             attackList.Add(collision.transform);
+
     }
 
     public void OnTriggerExit2D(Collider2D collision)
